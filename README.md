@@ -23,6 +23,22 @@ go run .
 
 Then open <http://localhost:8080> in your browser.
 
+## Run in Docker
+
+Build the image:
+
+```bash
+docker build -t shopify-webhook-faker .
+```
+
+Run it and let the container call back to services on your machine (e.g., `localhost:3001`):
+
+```bash
+docker run --rm -p 8080:8080 shopify-webhook-faker
+```
+
+In the UI, set your target URL to use `http://host.docker.internal:3001/...` instead of `http://localhost:3001/...`; `localhost` inside the container refers to the container itself.
+
 ## Usage
 
 1. Enter your Shopify app’s shared secret (it is only used to sign this single request).
