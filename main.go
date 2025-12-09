@@ -166,7 +166,7 @@ var pageTmpl = template.Must(template.New("page").Parse(`
       <div class="row">
         <label>
           Shopify shared secret
-          <input required name="secret" id="secret-input" type="password" placeholder="shpss_..." autocomplete="off">
+          <input required name="secret" id="secret-input" type="password" placeholder="..." autocomplete="off">
           <span class="hint">Used only to sign the payload on this request.</span>
         </label>
         <label>
