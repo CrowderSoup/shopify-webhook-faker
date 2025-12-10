@@ -13,6 +13,8 @@ import (
 	"net/url"
 	"strings"
 	"time"
+
+	"github.com/google/uuid"
 )
 
 type formData struct {
@@ -296,6 +298,7 @@ func sendHandler(w http.ResponseWriter, r *http.Request) {
 
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("X-Shopify-Hmac-Sha256", signature)
+	req.Header.Set("X-Shopify-Webhook-Id", uuid.New().String())
 	req.Header.Set("X-Shopify-Topic", data.Topic)
 	req.Header.Set("X-Shopify-Shop-Domain", data.ShopDomain)
 	req.Header.Set("User-Agent", "Shopify-Webhook-Faker/1.0")
